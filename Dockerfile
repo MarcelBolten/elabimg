@@ -2,7 +2,7 @@
 FROM alpine:3.12
 
 # select version or branch here
-ENV ELABFTW_VERSION 3.6.6
+ENV ELABFTW_VERSION 3.6.6_mayorlab
 
 # this is versioning for the container image
 ENV ELABIMG_VERSION 2.3.1
@@ -67,7 +67,7 @@ RUN apk upgrade -U -a && apk add --no-cache \
     apk del autoconf build-base libtool php7-dev
 
 # clone elabftw repository in /elabftw
-RUN git clone --depth 1 -b $ELABFTW_VERSION https://github.com/elabftw/elabftw.git /elabftw && chown -R nginx:nginx /elabftw && rm -rf /elabftw/.git
+RUN git clone --depth 1 -b $ELABFTW_VERSION https://github.com/MarcelBolten/elabftw.git /elabftw && chown -R nginx:nginx /elabftw && rm -rf /elabftw/.git
 
 WORKDIR /elabftw
 
